@@ -32,12 +32,86 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
+schemes:
+  # Base16 Gruvbox light, hard - alacritty color config
+  gruvbox_light: &light
+    primary:
+      hard contrast: background = '#f9f5d7'
+      background: '#fbf1c7'
+      # soft contrast: background = '#f2e5bc'
+      foreground: '#3c3836'
+
+    # Normal colors
+    normal:
+      black:   '#fbf1c7'
+      red:     '#cc241d'
+      green:   '#98971a'
+      yellow:  '#d79921'
+      blue:    '#458588'
+      magenta: '#b16286'
+      cyan:    '#689d6a'
+      white:   '#7c6f64'
+
+    # Bright colors
+    bright:
+      black:   '#928374'
+      red:     '#9d0006'
+      green:   '#79740e'
+      yellow:  '#b57614'
+      blue:    '#076678'
+      magenta: '#8f3f71'
+      cyan:    '#427b58'
+      white:   '#3c3836'
+
+  # Base16 Gruvbox dark, hard 256 - alacritty color config
+  gruvbox_dark: &dark
+    primary:
+      background: '0x1d2021'
+      foreground: '0xd5c4a1'
+
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+      text: '0x1d2021'
+      cursor: '0xd5c4a1'
+
+    # Normal colors
+    normal:
+      black:   '0x1d2021'
+      red:     '0xfb4934'
+      green:   '0xb8bb26'
+      yellow:  '0xfabd2f'
+      blue:    '0x83a598'
+      magenta: '0xd3869b'
+      cyan:    '0x8ec07c'
+      white:   '0xd5c4a1'
+
+    # Bright colors
+    bright:
+      black:   '0x665c54'
+      red:     '0xfb4934'
+      green:   '0xb8bb26'
+      yellow:  '0xfabd2f'
+      blue:    '0x83a598'
+      magenta: '0xd3869b'
+      cyan:    '0x8ec07c'
+      white:   '0xfbf1c7'
+
+    indexed_colors:
+      - { index: 16, color: '0xfe8019' }
+      - { index: 17, color: '0xd65d0e' }
+      - { index: 18, color: '0x3c3836' }
+      - { index: 19, color: '0x504945' }
+      - { index: 20, color: '0xbdae93' }
+      - { index: 21, color: '0xebdbb2' }
+
+colors: *light
+
 # Live config reload (changes require restart)
 #live_config_reload: true
 
 # Shell
 shell:
-  program: wsl
+  program: wsl -d Ubuntu-20.04
   args:
     - --
     - "tmux attach || tmux"
@@ -46,4 +120,4 @@ shell:
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
-working_directory: \\wsl$\openSUSE-Leap-15.2\root
+working_directory: \\wsl$\Ubuntu-20.04\root
